@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shruti Sahoo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #002E5D;
+    --body-text: #33475D;
+    --meta: #5C7089;
+    --accent: #FDB515;
+    --bg: #F5F7F9;
+    --border: #E1E9EF;
+    --border-strong: #D6E0E8;
+    --photo-bg: #E8EEF3;
+    --photo-border: #CBDAE5;
+    --photo-label: #7C93A6;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: var(--ink);
+  }
+  a { color: inherit; text-decoration: none; }
+  a:hover { opacity: 0.72; }
+  .serif { font-family: 'Fraunces', serif; }
+
+  .wrap {
+    max-width: 1088px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  header {
+    padding: 72px 0 56px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .eyebrow {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  h1 {
+    margin: 0;
+    font-size: 56px;
+    line-height: 1.05;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    height: 48px;
+    padding: 0 26px;
+    background: var(--accent);
+    color: var(--ink);
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 4px;
+    width: fit-content;
+    margin-top: 6px;
+  }
+
+  .content-section {
+    padding: 56px 0 80px 0;
+    border-top: 1px solid var(--border-strong);
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  h2 {
+    margin: 0;
+    font-size: 36px;
+    font-weight: 500;
+  }
+  .tabs {
+    display: flex;
+    gap: 36px;
+    border-bottom: 1px solid var(--border);
+  }
+  .tab-btn {
+    background: none;
+    border: none;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 15px;
+    cursor: pointer;
+    padding: 0 0 10px 0;
+    color: var(--photo-label);
+    font-weight: 600;
+    border-bottom: 3px solid transparent;
+  }
+  .tab-btn.active {
+    color: var(--ink);
+    font-weight: 700;
+    border-bottom-color: var(--accent);
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .card-grid.hidden { display: none; }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    background: #FFFFFF;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .card:hover { border-color: var(--accent); }
+  .card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+  }
+  .card .photo-placeholder {
+    width: 100%;
+    height: 220px;
+    background: var(--photo-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .card .photo-placeholder span {
+    font-size: 12.5px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--photo-label);
+    text-align: center;
+    padding: 0 24px;
+  }
+  .card-body {
+    padding: 20px 22px 24px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .card-meta { font-size: 12px; color: var(--meta); }
+  .card-title { font-size: 18px; font-weight: 500; line-height: 1.25; }
+  .card-desc { font-size: 13.5px; line-height: 1.55; color: var(--body-text); }
+  .card-link { font-size: 13px; font-weight: 700; color: var(--ink); margin-top: 6px; }
+
+  @media (max-width: 860px) {
+    h1 { font-size: 42px; }
+    .card-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Computer Science &amp; Data Science — UC Berkeley</div>
+    <h1 class="serif">Shruti Sahoo</h1>
+    <a class="btn-primary" href="https://www.linkedin.com/in/shruti-sahoo-06-/" target="_blank">Connect on LinkedIn</a>
+  </header>
+
+  <section class="content-section">
+    <div style="display:flex; flex-direction:column; gap:20px;">
+      <h2 class="serif">What I've been up to</h2>
+      <div class="tabs">
+        <button class="tab-btn active" id="tab-research" onclick="showTab('research')">Research &amp; Involvement</button>
+        <button class="tab-btn" id="tab-travel" onclick="showTab('travel')">Travel &amp; Hobbies</button>
+      </div>
+    </div>
+
+    <div class="card-grid" id="panel-research">
+
+      <a class="card" href="SLAC_Poster_Shruti_Sahoo.pdf" target="_blank">
+        <img src="slac.jpg" alt="Shruti Sahoo presenting her SLAC research poster">
+        <div class="card-body">
+          <div class="card-meta">SLAC National Accelerator Laboratory &middot; Jun &ndash; Aug 2025</div>
+          <div class="card-title serif">Computational Quantum Mechanics Research Intern</div>
+          <div class="card-desc">Explored AI-assisted time-domain algorithms for 2D quantum magnetic systems at LCLS/SIMES.</div>
+          <div class="card-link">View research poster &rarr;</div>
+        </div>
+      </a>
+
+      <div class="card">
+        <img src="argonne.jpg" alt="Shruti Sahoo at a research poster session">
+        <div class="card-body">
+          <div class="card-meta">Argonne National Laboratory &middot; May &ndash; Aug 2026</div>
+          <div class="card-title serif">Machine Learning Research Intern &mdash; SULI Program</div>
+          <div class="card-desc">Building a machine learning pipeline to predict membrane fouling parameters, toward a co-authored paper.</div>
+        </div>
+      </div>
+
+      <a class="card" href="https://www.bmun.org/officers" target="_blank">
+        <img src="bmun.jpg" alt="Shruti Sahoo holding a gavel at a BMUN session">
+        <div class="card-body">
+          <div class="card-meta">Berkeley Model United Nations &middot; Since Sep 2024</div>
+          <div class="card-title serif">VP of Technology</div>
+          <div class="card-desc">Building registration software for BMUN in Next.js and Supabase.</div>
+          <div class="card-link">View officers page &rarr;</div>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="card-grid hidden" id="panel-travel">
+
+      <div class="card">
+        <div class="photo-placeholder"><span>[Add a Photo]</span></div>
+        <div class="card-body">
+          <div class="card-title serif">[Trip or Hobby Name]</div>
+          <div class="card-desc">[Add a short description]</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="photo-placeholder"><span>[Add a Photo]</span></div>
+        <div class="card-body">
+          <div class="card-title serif">[Trip or Hobby Name]</div>
+          <div class="card-desc">[Add a short description]</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="photo-placeholder"><span>[Add a Photo]</span></div>
+        <div class="card-body">
+          <div class="card-title serif">[Trip or Hobby Name]</div>
+          <div class="card-desc">[Add a short description]</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<script>
+  function showTab(name) {
+    document.getElementById('panel-research').classList.toggle('hidden', name !== 'research');
+    document.getElementById('panel-travel').classList.toggle('hidden', name !== 'travel');
+    document.getElementById('tab-research').classList.toggle('active', name === 'research');
+    document.getElementById('tab-travel').classList.toggle('active', name === 'travel');
+  }
+</script>
+
+</body>
+</html>
